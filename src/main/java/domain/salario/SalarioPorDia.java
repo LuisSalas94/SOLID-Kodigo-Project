@@ -6,20 +6,16 @@ import lombok.Setter;
 public class SalarioPorDia extends Salario {
 
     @Getter @Setter
-    private Double salarioFinal;
+    private Double salario;
 
-    SalarioPorDia(Double salario) {
-       super(salario);
+    SalarioPorDia(Double salarioBaseMensual) {
+       super(salarioBaseMensual);
        calcularSalario();
-    }
-
-    public SalarioPorDia(double salario) {
-        super(salario);
     }
 
     @Override
     Double calcularSalario() {
-        this.salarioFinal = super.getSalario() / 30;
-        return salarioFinal;
+        this.salario = super.getSalarioBaseMensual() / 30;
+        return salario;
     }
 }

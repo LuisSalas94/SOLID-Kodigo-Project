@@ -2,14 +2,16 @@ package domain.salario;
 
 public class SalarioPorSemana extends Salario {
 
-    private double salario;
+    private Double salario;
 
-    public SalarioPorSemana(double salario) {
-        super(salario);
+    SalarioPorSemana(Double salarioBaseMensual) {
+        super(salarioBaseMensual);
+        calcularSalario();
     }
 
     @Override
     Double calcularSalario() {
-        return salario / 4;
+        salario = super.getSalarioBaseMensual() / 4;
+        return salario;
     }
 }

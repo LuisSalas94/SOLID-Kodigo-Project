@@ -5,10 +5,10 @@ import lombok.Setter;
 
 abstract public class Salario {
     @Getter @Setter
-    private Double salario;
+    private Double salarioBaseMensual;
 
-    Salario(Double salario) {
-        this.salario = salario;
+    Salario(Double salarioBaseMensual) {
+        this.salarioBaseMensual = salarioBaseMensual;
     }
 
     abstract Double calcularSalario();
