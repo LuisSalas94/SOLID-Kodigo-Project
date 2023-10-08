@@ -1,12 +1,8 @@
 package domain.salario;
 
-<<<<<<< HEAD
-=======
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
->>>>>>> 16e5826 (Refactor Salario)
 public class SalarioPorDia extends Salario {
 
     @Getter @Setter
