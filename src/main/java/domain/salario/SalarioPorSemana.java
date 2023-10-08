@@ -1,11 +1,12 @@
 package domain.salario;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public class SalarioPorSemana extends Salario {
 
     private double salario;
+
+    public SalarioPorSemana(double salario) {
+        super(salario);
+    }
 
     @Override
     double calcularSalario() {
