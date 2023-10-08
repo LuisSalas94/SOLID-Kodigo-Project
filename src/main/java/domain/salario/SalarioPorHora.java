@@ -11,8 +11,13 @@ public class SalarioPorHora extends Salario {
     }
 
     @Override
+<<<<<<< HEAD
     double calcularSalario() {
         double pagoPorHora = (salario / 30) / 8;
+=======
+    Double calcularSalario() {
+        double pagoPorHora = 10.0;
+>>>>>>> 16e5826 (Refactor Salario)
         return horasTrabajadas * pagoPorHora;
     }
 }

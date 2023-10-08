@@ -9,7 +9,7 @@ public class SalarioQuincenal extends Salario {
     }
 
     @Override
-    double calcularSalario() {
+    Double calcularSalario() {
         return salario / 2;
     }
 }

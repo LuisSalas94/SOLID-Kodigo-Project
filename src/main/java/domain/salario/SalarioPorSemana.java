@@ -9,7 +9,7 @@ public class SalarioPorSemana extends Salario {
     }
 
     @Override
-    double calcularSalario() {
+    Double calcularSalario() {
         return salario / 4;
     }
 }
