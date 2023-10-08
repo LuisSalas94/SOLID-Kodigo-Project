@@ -20,7 +20,7 @@ public class HorarioSemanal extends Horario {
         return true;
     }
 
-    private boolean eliminarHorario(DayOfWeek dia) {
+    public boolean eliminarHorario(DayOfWeek dia) {
         if (horario.containsKey(dia)) {
             horario.remove(dia);
             return true;
@@ -38,7 +38,7 @@ public class HorarioSemanal extends Horario {
         }
     }
 
-    private void agregarOSustituirHorario(DayOfWeek dia, HorarioDiario horarioDiario) {
+    public void agregarOSustituirHorario(DayOfWeek dia, HorarioDiario horarioDiario) {
         horario.put(dia, horarioDiario);
     }
 }
