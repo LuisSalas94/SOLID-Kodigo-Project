@@ -1,6 +1,6 @@
 package domain.deduccion_salarial;
 
-import domain.asistencia.Asistencia;
+import domain.asistencia.AsistenciaLaboral;
 import domain.asistencia.HorasExtra;
 import domain.salario.Salario;
 import domain.salario.SalarioHoraExtra;
@@ -18,11 +18,11 @@ public class DeduccionSalarial {
     private Double salarioLiquido;
 
 
-    DeduccionSalarial(Salario salarioBase, Salario[] salariosExtras, Asistencia asistencia) {
+    DeduccionSalarial(Salario salarioBase, Salario[] salariosExtras, AsistenciaLaboral asistencia) {
         this.calcularDeduccion(salarioBase, salariosExtras, asistencia);
     }
 
-    private Double calcularSalarioBruto(Salario salarioBase, Salario[] salariosExtras, Asistencia asistencia) {
+    private Double calcularSalarioBruto(Salario salarioBase, Salario[] salariosExtras, AsistenciaLaboral asistencia) {
         HorasExtra horasExtras = asistencia.calcularHorasExtras();
         SalarioHoraExtra salarioHoraExtra = new SalarioHoraExtra(salarioBase.getSalario(), horasExtras);
         Double totalSalarioExtra = 0.0;
@@ -32,7 +32,7 @@ public class DeduccionSalarial {
         return salarioHoraExtra.getSalario() + totalSalarioExtra + salarioBase.getSalario();
     }
 
-    void calcularDeduccion(Salario salarioBase, Salario[] salarios, Asistencia asistencia) {
+    void calcularDeduccion(Salario salarioBase, Salario[] salarios, AsistenciaLaboral asistencia) {
        salarioBruto = calcularSalarioBruto(salarioBase, salarios, asistencia);
        afp = new Afp(salarioBruto);
        isss = new Isss(salarioBruto);
