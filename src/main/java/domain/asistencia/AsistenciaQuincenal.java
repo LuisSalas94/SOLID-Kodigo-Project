@@ -22,12 +22,14 @@ public class AsistenciaQuincenal extends Asistencia{
         return new HorasExtra();
     }
     public void asignarVacaciones(Timer periodo){
+        System.out.println("Vacaciones asignadas para el período: " + periodo);
 
     }
     public void registrarAusencia(Date fecha, Ausencia ausencia){
-
+        ausencias.put(fecha,ausencia);
     }
-    public void registrarAsistencia(Date fecha, AsistenciaHorario asistencia){
 
+    public void registrarAsistencia(Date fecha, AsistenciaHorario asistencia){
+        asistencias.put(fecha,asistencia);
     }
 }
