@@ -3,18 +3,19 @@ package domain.asistencia;
 import domain.empleado.Empleado;
 import domain.horario.HorarioSemanal;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Timer;
 
 public class AsistenciaMensual extends Asistencia{
-    private HashMap<Date, AsistenciaHorario> asistencias;
-    private HashMap<Date, Ausencia> ausencias;
+    private HashMap<LocalDate, AsistenciaHorario> asistencias;
+    private HashMap<LocalDate, Ausencia> ausencias;
 
-    public AsistenciaMensual(Empleado empleado, HorarioSemanal horarioSemanal, Date fechaInicio, Date fechaFinal) {
+    public AsistenciaMensual(Empleado empleado, HorarioSemanal horarioSemanal, LocalDate fechaInicio, LocalDate fechaFinal) {
         super(empleado, horarioSemanal, fechaInicio, fechaFinal);
-        asistencias = new HashMap<>();
-        ausencias = new HashMap<>();
+        asistencias = new HashMap<LocalDate, AsistenciaHorario>();
+        ausencias = new HashMap<LocalDate, Ausencia>();
     }
 
     @Override
@@ -23,16 +24,16 @@ public class AsistenciaMensual extends Asistencia{
         return new HorasExtra();
     }
 
-    public void asignarVacaciones(Timer periodo) {
-        System.out.println("Vacaciones asignadas para el período: " + periodo);
+    public void asignarVacaciones(LocalDate fechaInicio, LocalDate fechaFin) {
+
 
     }
 
-    public void registrarAusencia(Date fecha, Ausencia ausencia) {
+    public void registrarAusencia(LocalDate fecha, Ausencia ausencia) {
         ausencias.put(fecha, ausencia);
     }
 
-    public void registrarAsistencia(Date fecha, AsistenciaHorario asistencia) {
+    public void registrarAsistencia(LocalDate fecha, AsistenciaHorario asistencia) {
         asistencias.put(fecha, asistencia);
     }
 

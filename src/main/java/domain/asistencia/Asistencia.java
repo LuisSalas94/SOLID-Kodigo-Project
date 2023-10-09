@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -16,14 +17,14 @@ import java.util.Date;
 public abstract class Asistencia {
     private Empleado empleado;
     private HorarioSemanal horarioSemanal;
-    private Date fechaInicio;
-    private Date fechaFinal;
-    public Asistencia(Empleado empleado, HorarioSemanal horarioSemanal, Date fechaInicio, Date fechaFinal) {
+    private LocalDate fechaInicio;
+    private LocalDate fechaFinal;
+    public Asistencia(Empleado empleado, HorarioSemanal horarioSemanal, LocalDate fechaInicio, LocalDate fechaFinal) {
         this.empleado = empleado;
         this.horarioSemanal = horarioSemanal;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
     }
-    public abstract HorasExtra calcularHorasExtras();
+    public abstract HorasExtra calcularHorasExtras(int año, int mes, double horas);
 
 }
