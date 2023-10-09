@@ -12,6 +12,11 @@ public class HorarioSemanal extends Horario {
     @Setter
     private HashMap<DayOfWeek, HorarioDiario> horario;
 
+    public HorarioSemanal(String nombre, String descripcion, HashMap<DayOfWeek, HorarioDiario> horario) {
+        super(nombre, descripcion);
+        this.horario = horario;
+    }
+
     private boolean agregarHorario(DayOfWeek dia, HorarioDiario horarioDiario) {
         if (horario.containsKey(dia)) {
             return false;
