@@ -1,13 +1,6 @@
 package domain.salario;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class SalarioPorDia extends Salario {
-
-    @Getter @Setter
-    private Double salario;
-
     SalarioPorDia(Double salarioBaseMensual) {
        super(salarioBaseMensual);
        calcularSalario();
@@ -15,7 +8,7 @@ public class SalarioPorDia extends Salario {
 
     @Override
     Double calcularSalario() {
-        this.salario = super.getSalarioBaseMensual() / 30;
-        return salario;
+        super.setSalario(super.getSalarioBaseMensual() / 30);
+        return super.getSalario();
     }
 }

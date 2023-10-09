@@ -1,6 +1,5 @@
 package domain.salario;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +17,7 @@ public class SalarioPorHora extends Salario {
     @Override
     Double calcularSalario() {
         double pagoPorHora = (super.getSalarioBaseMensual() / 30) / 8;
-        return horasTrabajadas * pagoPorHora;
+        super.setSalario(horasTrabajadas * pagoPorHora);
+        return super.getSalario();
     }
 }

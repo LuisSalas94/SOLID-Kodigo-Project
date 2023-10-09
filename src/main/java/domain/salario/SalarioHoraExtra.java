@@ -1,5 +1,6 @@
 package domain.salario;
 
+import domain.asistencia.HorasExtra;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +14,7 @@ public class SalarioHoraExtra extends Salario {
     @Getter
     private Double salario;
 
-    SalarioHoraExtra(Double salarioBaseMensual, Object horasExtras) {
+    public SalarioHoraExtra(Double salarioBaseMensual, HorasExtra horasExtras) {
         super(salarioBaseMensual);
         this.horasExtras = horasExtras;
         calcularSalario();
