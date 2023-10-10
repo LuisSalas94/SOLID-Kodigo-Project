@@ -14,8 +14,6 @@ public class SalarioHoraExtra extends Salario {
 
   @Getter @Setter private HorasExtra horasExtras;
 
-  @Getter private Double salario;
-
   SalarioPorHora salarioPorHora;
 
   public SalarioHoraExtra(Double salarioBaseMensual, HorasExtra horasExtras) {
@@ -31,7 +29,7 @@ public class SalarioHoraExtra extends Salario {
         horasExtras.getHorasDiurnas() * salarioPorHora.getSalario() * porcentajeHorasDiurnas;
     salarioPorHorasNocturnas =
         horasExtras.getHorasNocturnas() * salarioPorHora.getSalario() * porcentajeHorasNocturnas;
-    salario = salarioPorHorasDiurnas + salarioPorHorasNocturnas;
-    return salario;
+    super.setSalario(salarioPorHorasDiurnas + salarioPorHorasNocturnas);
+    return super.getSalario();
   }
 }

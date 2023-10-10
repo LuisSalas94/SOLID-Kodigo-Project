@@ -37,7 +37,7 @@ public class DeduccionSalarial {
     return salarioHoraExtra.getSalario() + totalSalarioExtra + salarioBase.getSalario();
   }
 
-  void calcularDeduccion(Salario salarioBase, Salario[] salarios) {
+  public void calcularDeduccion(Salario salarioBase, Salario[] salarios) {
     salarioBruto = calcularSalarioBruto(salarioBase, salarios);
     afp = new Afp(salarioBruto);
     isss = new Isss(salarioBruto);
