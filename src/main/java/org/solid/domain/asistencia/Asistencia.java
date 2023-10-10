@@ -1,15 +1,14 @@
 package org.solid.domain.asistencia;
 
+import java.time.LocalTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalTime;
 
 @AllArgsConstructor
 @Setter
 @Getter
 public class Asistencia {
-    private LocalTime horaEntrada;
-    private LocalTime horaSalida;
+  private LocalTime horaEntrada;
+  private LocalTime horaSalida;
 }

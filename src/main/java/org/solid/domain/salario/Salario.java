@@ -3,15 +3,13 @@ package org.solid.domain.salario;
 import lombok.Getter;
 import lombok.Setter;
 
-abstract public class Salario {
-    @Getter @Setter
-    private Double salarioBaseMensual;
-    @Getter @Setter
-    private Double salario;
+public abstract class Salario {
+  @Getter @Setter private Double salarioBaseMensual;
+  @Getter @Setter private Double salario;
 
-    Salario(Double salarioBaseMensual) {
-        this.salarioBaseMensual = salarioBaseMensual;
-    }
+  Salario(Double salarioBaseMensual) {
+    this.salarioBaseMensual = salarioBaseMensual;
+  }
 
-    abstract Double calcularSalario();
+  abstract Double calcularSalario();
 }

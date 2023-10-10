@@ -1,13 +1,0 @@
-
-A
-java:S1640"Convert this Map to an EnumMap.(©¨ûÓşÿÿÿÿ8õ°ô’±1
-‚
-java:S4165"eRemove this useless assignment; "horario" already holds the assigned value along all execution paths.(ûèîÑ8€±ô’±1
-L
-java:S1656"/Remove or correct this useless self-assignment.(ûèîÑ8†±ô’±1
-G
-java:S1128"*Remove this unused import 'lombok.Setter'.(ó¸çµ8‡±ô’±1
-N
-java:S1144"3Remove this unused private "agregarHorario" method.(ó¾İ™ûÿÿÿÿ
-W
-java:S1144$"5Remove this unused private "sustituirHorario" method.(Ìò¨şÿÿÿÿ8œçÒŒ±1

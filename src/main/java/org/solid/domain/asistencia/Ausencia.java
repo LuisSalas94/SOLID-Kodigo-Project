@@ -10,6 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Ausencia {
-    private String motivo;
-    private String estadoAprobacion;
+  private String motivo;
+  private String estadoAprobacion;
 }

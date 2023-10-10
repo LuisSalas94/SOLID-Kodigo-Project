@@ -7,7 +7,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-abstract public class Horario {
-    private String nombre;
-    private String descripcion;
+public abstract class Horario {
+  private String nombre;
+  private String descripcion;
 }

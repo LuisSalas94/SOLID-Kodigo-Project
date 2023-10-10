@@ -1,14 +1,14 @@
 package org.solid.domain.salario;
 
 public class SalarioPorDia extends Salario {
-    SalarioPorDia(Double salarioBaseMensual) {
-       super(salarioBaseMensual);
-       calcularSalario();
-    }
+  SalarioPorDia(Double salarioBaseMensual) {
+    super(salarioBaseMensual);
+    calcularSalario();
+  }
 
-    @Override
-    Double calcularSalario() {
-        super.setSalario(super.getSalarioBaseMensual() / 30);
-        return super.getSalario();
-    }
+  @Override
+  Double calcularSalario() {
+    super.setSalario(super.getSalarioBaseMensual() / 30);
+    return super.getSalario();
+  }
 }
