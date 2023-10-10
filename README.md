@@ -14,13 +14,13 @@ Registro de datos personales, documentos de identificación y referencias.
 - Seguimiento de días de vacaciones acumulados y utilizados.
 ## Nómina y Remuneración:
 - Cálculo y generación de nóminas de pago, incluyendo deducciones, impuestos y bonificaciones.
-- Integración con sistemas de contabilidad y pagos.
 ## Diagrama
 ![image](https://github.com/LuisSalas94/SOLID-Kodigo-Project/assets/57297709/8df59317-6a1c-4da3-b978-2e26c841171a)
 
 ## Tech Stack
 - Java 17
 - Lombok
+- Spotify fmt
 
 ## Autores 👤
 - [JosephPM39](https://github.com/JosephPM39)
