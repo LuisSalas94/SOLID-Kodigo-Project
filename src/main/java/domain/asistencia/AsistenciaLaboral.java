@@ -1,65 +1,66 @@
 package domain.asistencia;
 
-
 import domain.horario.HorarioSemanal;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.HashMap;
 
-@NoArgsConstructor
-@Getter
-@Setter
 public class AsistenciaLaboral {
+    @Getter @Setter
     private HorarioSemanal horarioSemanal;
+    @Getter @Setter
     private LocalDate fechaInicio;
+    @Getter @Setter
     private LocalDate fechaFinal;
-    private HashMap<LocalDate, Asistencia> asistencias;
-    private HashMap<LocalDate, Ausencia> ausencias;
+    @Getter
+    private HashMap<LocalDate, Asistencia> asistencias = new HashMap<>();
+    @Getter
+    private HashMap<LocalDate, Ausencia> ausencias = new HashMap<>();
     public AsistenciaLaboral(HorarioSemanal horarioSemanal, LocalDate fechaInicio, LocalDate fechaFinal) {
         this.horarioSemanal = horarioSemanal;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
-        this.asistencias = new HashMap<>();
-        this.ausencias = new HashMap<LocalDate, Ausencia>();
     }
 
     public void registrarAusencia(LocalDate fecha, Ausencia ausencia) {
-
-        if (fecha.isBefore(fechaInicio) || fecha.isAfter(fechaFinal)) {
-            throw new IllegalArgumentException("La fecha de ausencia está fuera del período laboral.");
-        }
-        if (ausencias.containsKey(fecha)) {
-            throw new IllegalArgumentException("Ya existe una ausencia registrada para esta fecha.");
-        }
+        eliminarAsistencia(fecha);
+        eliminarAusencia(fecha);
         ausencias.put(fecha, ausencia);
     }
 
     public void registrarAsistencia(LocalDate fecha, Asistencia asistencia) {
-        if (fecha.isBefore(fechaInicio) || fecha.isAfter(fechaFinal)) {
-            throw new IllegalArgumentException("La fecha de asistencia está fuera del período laboral.");
-        }
-        if (asistencias.containsKey(fecha)) {
-            throw new IllegalArgumentException("Ya existe una asistencia registrada para esta fecha.");
-        }
-        asistencias.put(fecha, asistencia);
+        eliminarAsistencia(fecha);
+        eliminarAusencia(fecha);
+        asistencias.put(fecha, asistencia) ;
     }
 
     public void asignarVacaciones(LocalDate fechaInicio, LocalDate fechaFinal) {
-        if (!fechaInicio.isBefore(fechaInicio.atStartOfDay().toLocalDate()) && !fechaInicio.isAfter(fechaFinal.atStartOfDay().toLocalDate())) {
-            Ausencia ausencia = new Ausencia("Vacaciones", "Aprobado");
-            ausencias.put(LocalDate.from(fechaInicio.atStartOfDay(ZoneId.systemDefault()).toInstant()), ausencia);
-        } else {
+        LocalDate fechaInicioSolapada = this.fechaInicio.isAfter(fechaInicio) ? this.fechaInicio : fechaInicio;
+        LocalDate fechaFinalSolapada = this.fechaFinal.isAfter(fechaFinal) ? this.fechaFinal : fechaFinal;
+        LocalDate fechaActual = fechaInicioSolapada;
 
-            System.out.println("No se pueden asignar vacaciones en esta fecha.");
+        Ausencia permisoVacaciones = new Ausencia("Vacaciones", "Aprobado");
+        while(!fechaActual.isAfter(fechaFinalSolapada)) {
+            eliminarAusencia(fechaActual);
+            eliminarAsistencia(fechaActual);
+            ausencias.put(fechaActual, permisoVacaciones);
+            fechaActual = fechaActual.plusDays(1);
         }
     }
 
+    public void eliminarAsistencia(LocalDate fecha) {
+        if (asistencias.containsKey(fecha)) {
+            asistencias.remove(fecha);
+        }
+    }
 
+    public void eliminarAusencia(LocalDate fecha) {
+        if (ausencias.containsKey(fecha)) {
+            ausencias.remove(fecha);
+        }
+    }
 
 }

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -21,7 +22,7 @@ public class Empleado {
 
     @Getter
     @Setter
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Getter
     @Setter
@@ -37,5 +38,5 @@ public class Empleado {
 
     @Getter
     @Setter
-    private String fechaContrato;
+    private LocalDate fechaContrato;
 }

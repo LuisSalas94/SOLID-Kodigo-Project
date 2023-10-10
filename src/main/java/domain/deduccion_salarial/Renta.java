@@ -40,24 +40,25 @@ public class Renta {
     }
 
     private Double aplicarPrimerTramo(Double salario) {
+        retencion = 0.0;
         salarioLiquido = salario;
         return salarioLiquido;
     }
 
     private Double aplicarSegundoTramo(Double salario) {
-        retencion = (salario * 0.1) + 17.67;
+        retencion = ((salario - 472.00) * 0.1) + 17.67;
         salarioLiquido = salario - retencion;
         return salarioLiquido;
     }
 
     private Double aplicarTercerTramo(Double salario) {
-        retencion = (salario * 0.2) + 60.00;
+        retencion = ((salario - 895.24) * 0.2) + 60.00;
         salarioLiquido = salario - retencion;
         return salarioLiquido;
     }
 
     private Double aplicarCuartoTramo(Double salario) {
-        retencion = (salario * 0.3) + 288.57;
+        retencion = ((salario - 2038.10) * 0.3) + 288.57;
         salarioLiquido = salario - retencion;
         return salarioLiquido;
     }

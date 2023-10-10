@@ -16,15 +16,20 @@ public class DeduccionSalarial {
     private Afp afp;
     private Renta renta;
     private Double salarioLiquido;
+    private HorasExtra horasExtras;
 
-
-    DeduccionSalarial(Salario salarioBase, Salario[] salariosExtras, AsistenciaLaboral asistencia) {
-        this.calcularDeduccion(salarioBase, salariosExtras, asistencia);
+    public DeduccionSalarial(Salario salarioBase, Salario[] salariosExtras, HorasExtra horasExtras) {
+        this.horasExtras = horasExtras;
+        this.calcularDeduccion(salarioBase, salariosExtras);
     }
 
-    private Double calcularSalarioBruto(Salario salarioBase, Salario[] salariosExtras, AsistenciaLaboral asistencia) {
-        HorasExtra horasExtras = asistencia.calcularHorasExtras();
-        SalarioHoraExtra salarioHoraExtra = new SalarioHoraExtra(salarioBase.getSalario(), horasExtras);
+    public DeduccionSalarial(Salario salarioBase, HorasExtra horasExtras) {
+        this.horasExtras = horasExtras;
+        this.calcularDeduccion(salarioBase, new Salario[] {});
+    }
+
+    private Double calcularSalarioBruto(Salario salarioBase, Salario[] salariosExtras) {
+        SalarioHoraExtra salarioHoraExtra = new SalarioHoraExtra(salarioBase.getSalarioBaseMensual(), horasExtras);
         Double totalSalarioExtra = 0.0;
         for (Salario salario: salariosExtras) {
            totalSalarioExtra += salario.getSalario();
@@ -32,8 +37,8 @@ public class DeduccionSalarial {
         return salarioHoraExtra.getSalario() + totalSalarioExtra + salarioBase.getSalario();
     }
 
-    void calcularDeduccion(Salario salarioBase, Salario[] salarios, AsistenciaLaboral asistencia) {
-       salarioBruto = calcularSalarioBruto(salarioBase, salarios, asistencia);
+    void calcularDeduccion(Salario salarioBase, Salario[] salarios) {
+       salarioBruto = calcularSalarioBruto(salarioBase, salarios);
        afp = new Afp(salarioBruto);
        isss = new Isss(salarioBruto);
        Double salarioPreRenta = salarioBruto - afp.getAfpEmpleado() - isss.getIsssEmpleado();

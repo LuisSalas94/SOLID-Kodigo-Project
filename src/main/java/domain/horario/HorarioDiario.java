@@ -6,14 +6,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @Setter
 public class HorarioDiario extends Horario {
-    private LocalDateTime entrada;
-    private LocalDateTime salida;
+    private LocalTime entrada;
+    private LocalTime salida;
 
-    public HorarioDiario(String nombre, String descripcion, LocalDateTime entrada, LocalDateTime salida) {
+    public HorarioDiario(String nombre, String descripcion, LocalTime entrada, LocalTime salida) {
         super(nombre, descripcion);
         this.entrada = entrada;
         this.salida = salida;

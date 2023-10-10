@@ -1,0 +1,9 @@
+
+L	java:S106."+Replace this use of System.out by a logger.(·ıçùÿÿÿÿ8æŠè’±1
+L	java:S106/"+Replace this use of System.out by a logger.(ÿÌ¿óûÿÿÿÿ8çŠè’±1
+G	java:S1060"+Replace this use of System.out by a logger.(ë‰çû8ôüè’±1
+[
+java:S1128"9Remove this unused import 'domain.asistencia.Asistencia'.(Úˆşÿÿÿÿ8Ó“é“±1
+P
+java:S1128
+"3Remove this unused import 'domain.horario.Horario'.(ï¢ó¶8Ó“é“±1

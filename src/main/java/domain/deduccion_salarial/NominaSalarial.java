@@ -12,7 +12,7 @@ public class NominaSalarial {
     @Getter @Setter
     private Salario salario;
     @Getter @Setter
-    private AsistenciaLaboral asistencia;
+    private AsistenciaLaboral asistenciaLaboral;
     @Getter @Setter
     private DeduccionSalarial deduccionSalarial;
     @Getter @Setter

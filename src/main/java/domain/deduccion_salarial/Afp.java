@@ -5,10 +5,9 @@ import lombok.Setter;
 
 public class Afp {
     @Getter @Setter
-    private Double afpPorcentajeEmpleado = 7.25 / 100;
-
+    private Double afpPorcentajeEmpleado = 7.25 / 100.0;
     @Getter @Setter
-    private Double afpPorcentajePatronal = 7.75 / 100;
+    private Double afpPorcentajePatronal = 7.75 / 100.0;
     @Getter @Setter
     private Double afpEmpleado;
     @Getter @Setter
@@ -21,9 +20,13 @@ public class Afp {
     }
 
     public Double calcularDeduccion(Double salario) {
-        this.afpEmpleado = salario * afpPorcentajeEmpleado;
-        this.afpPatronal = salario * afpPorcentajePatronal;
-        this.salarioLiquido = salario - afpEmpleado;
+        Double salarioPreAfp = salario;
+        if (salario >= 7028.29) {
+            salarioPreAfp = 7028.29;
+        }
+        this.afpEmpleado = salarioPreAfp * afpPorcentajeEmpleado;
+        this.afpPatronal = salarioPreAfp * afpPorcentajePatronal;
+        this.salarioLiquido = salarioPreAfp - afpEmpleado;
 
         return salarioLiquido;
     }
