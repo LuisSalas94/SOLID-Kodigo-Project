@@ -8,7 +8,7 @@ import org.solid.domain.salario.SalarioHoraExtra;
 
 @Getter
 @Setter
-public class DeduccionSalarial {
+public class DeduccionSalarial implements IDeduccion, ISalarioBruto {
 
   private Double salarioBruto;
   private Isss isss;
@@ -17,28 +17,35 @@ public class DeduccionSalarial {
   private Double salarioLiquido;
   private HorasExtra horasExtras;
 
+  private Salario salarioBase;
+  private Salario[] salariosExtras;
+
   public DeduccionSalarial(Salario salarioBase, Salario[] salariosExtras, HorasExtra horasExtras) {
     this.horasExtras = horasExtras;
-    this.calcularDeduccion(salarioBase, salariosExtras);
+    this.salarioBase = salarioBase;
+    this.salariosExtras = salariosExtras;
+    calcularDeduccion();
   }
 
   public DeduccionSalarial(Salario salarioBase, HorasExtra horasExtras) {
     this.horasExtras = horasExtras;
-    this.calcularDeduccion(salarioBase, new Salario[] {});
+    this.salarioBase = salarioBase;
+    this.salariosExtras = new Salario[] {};
+    calcularDeduccion();
   }
 
-  private Double calcularSalarioBruto(Salario salarioBase, Salario[] salariosExtras) {
+  public void calcularSalarioBruto() {
     SalarioHoraExtra salarioHoraExtra =
         new SalarioHoraExtra(salarioBase.getSalarioBaseMensual(), horasExtras);
     Double totalSalarioExtra = 0.0;
     for (Salario salario : salariosExtras) {
       totalSalarioExtra += salario.getSalario();
     }
-    return salarioHoraExtra.getSalario() + totalSalarioExtra + salarioBase.getSalario();
+    this.salarioBruto = salarioHoraExtra.getSalario() + totalSalarioExtra + salarioBase.getSalario();
   }
 
-  public void calcularDeduccion(Salario salarioBase, Salario[] salarios) {
-    salarioBruto = calcularSalarioBruto(salarioBase, salarios);
+  public void calcularDeduccion() {
+    calcularSalarioBruto();
     afp = new Afp(salarioBruto);
     isss = new Isss(salarioBruto);
     Double salarioPreRenta = salarioBruto - afp.getAfpEmpleado() - isss.getIsssEmpleado();

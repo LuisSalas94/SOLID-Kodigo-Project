@@ -3,20 +3,23 @@ package org.solid.domain.deduccion_salarial;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Renta {
+public class Renta implements IDeduccion {
   @Getter @Setter private Integer tramo;
   @Getter @Setter private Double retencion;
   @Getter @Setter private Double salarioLiquido;
+  @Getter @Setter private Double salarioPosImpuestos;
 
-  Renta(Double salario) {
-    calcularDeduccion(salario);
+  Renta(Double salarioPosImpuestos) {
+    this.salarioPosImpuestos = salarioPosImpuestos;
+    calcularDeduccion();
   }
 
-  public Double calcularDeduccion(Double salario) {
-    return aplicarRetencion(salario);
+  public void calcularDeduccion() {
+    aplicarRetencion();
   }
 
-  private Double aplicarRetencion(Double salario) {
+  private Double aplicarRetencion() {
+    Double salario = this.salarioPosImpuestos;
     if (salario >= 0.01 && salario <= 472.00) {
       tramo = 1;
       return aplicarPrimerTramo(salario);

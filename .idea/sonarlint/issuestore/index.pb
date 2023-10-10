@@ -43,3 +43,7 @@ i
 9src/main/java/org/solid/domain/asistencia/Asistencia.java,0/0/000938fcb63b38f58150983f97dc0ce65d9d61ab
 V
 &src/main/java/org/solid/demo/Demo.java,d/d/dd87d213ce898852c87a013c86a0f024de608518
+^
+.src/main/java/org/solid/domain/utils/Dias.java,e/4/e482dc147079931a7aaa275485daeae287a4483d
+c
+3src/main/java/org/solid/domain/utils/DateUtils.java,7/6/76ecd0cbec98d4cb159fece95eec465d679a576a

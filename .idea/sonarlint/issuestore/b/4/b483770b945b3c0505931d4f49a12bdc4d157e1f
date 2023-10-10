@@ -1,5 +1,11 @@
 
+<
+java:S1640	"Convert this Map to an EnumMap.(“¾ºœ8öß¿»±1
+‚
+java:S4165"eRemove this useless assignment; "horario" already holds the assigned value along all execution paths.(ûèîÑ8à¿»±1
+L
+java:S1656"/Remove or correct this useless self-assignment.(ûèîÑ8‰à¿»±1
 U
-java:S1144"3Remove this unused private "agregarHorario" method.(Ü…Ýðÿÿÿÿÿ8ªð‚º±1
+java:S1144"3Remove this unused private "agregarHorario" method.(Ü…Ýðÿÿÿÿÿ8ªð‚º±1
 W
-java:S1144#"5Remove this unused private "sustituirHorario" method.(ù³²˜ÿÿÿÿÿ8ªð‚º±1
+java:S1144!"5Remove this unused private "sustituirHorario" method.(ù³²˜ÿÿÿÿÿ8ªð‚º±1
