@@ -1,6 +1,6 @@
-package domain;
+package domain.utils;
 
-public enum DayOfWeek {
+public enum Dias {
     Lunes,
     Martes,
     Miercoles,

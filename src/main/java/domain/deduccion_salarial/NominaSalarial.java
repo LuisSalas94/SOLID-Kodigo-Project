@@ -1,6 +1,6 @@
 package domain.deduccion_salarial;
 
-import domain.asistencia.Asistencia;
+import domain.asistencia.AsistenciaLaboral;
 import domain.empleado.Empleado;
 import domain.salario.Salario;
 import lombok.Getter;
@@ -12,7 +12,7 @@ public class NominaSalarial {
     @Getter @Setter
     private Salario salario;
     @Getter @Setter
-    private Asistencia asistencia;
+    private AsistenciaLaboral asistenciaLaboral;
     @Getter @Setter
     private DeduccionSalarial deduccionSalarial;
     @Getter @Setter

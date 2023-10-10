@@ -1,23 +1,21 @@
 package domain.horario;
 
-import domain.DayOfWeek;
+import domain.utils.Dias;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.HashMap;
 
 public class HorarioSemanal extends Horario {
 
     @Getter
-    @Setter
-    private HashMap<DayOfWeek, HorarioDiario> horario;
+    private HashMap<Dias, HorarioDiario> horario = new HashMap<>();
 
-    public HorarioSemanal(String nombre, String descripcion, HashMap<DayOfWeek, HorarioDiario> horario) {
+    public HorarioSemanal(String nombre, String descripcion) {
         super(nombre, descripcion);
         this.horario = horario;
     }
 
-    private boolean agregarHorario(DayOfWeek dia, HorarioDiario horarioDiario) {
+    private boolean agregarHorario(Dias dia, HorarioDiario horarioDiario) {
         if (horario.containsKey(dia)) {
             return false;
         }
@@ -25,7 +23,7 @@ public class HorarioSemanal extends Horario {
         return true;
     }
 
-    public boolean eliminarHorario(DayOfWeek dia) {
+    public boolean eliminarHorario(Dias dia) {
         if (horario.containsKey(dia)) {
             horario.remove(dia);
             return true;
@@ -34,7 +32,7 @@ public class HorarioSemanal extends Horario {
         }
     }
 
-    private boolean sustituirHorario(DayOfWeek dia, HorarioDiario horarioDiario) {
+    private boolean sustituirHorario(Dias dia, HorarioDiario horarioDiario) {
         if (horario.containsKey(dia)) {
             horario.put(dia, horarioDiario);
             return true;
@@ -43,7 +41,7 @@ public class HorarioSemanal extends Horario {
         }
     }
 
-    public void agregarOSustituirHorario(DayOfWeek dia, HorarioDiario horarioDiario) {
+    public void agregarOSustituirHorario(Dias dia, HorarioDiario horarioDiario) {
         horario.put(dia, horarioDiario);
     }
 }

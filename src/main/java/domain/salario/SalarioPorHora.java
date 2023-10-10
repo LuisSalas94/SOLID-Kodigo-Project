@@ -5,19 +5,15 @@ import lombok.Setter;
 
 public class SalarioPorHora extends Salario {
 
-    @Getter @Setter
-    private int horasTrabajadas;
-
-    SalarioPorHora(Double salarioBaseMensual, int horasTrabajadas) {
+    public SalarioPorHora(Double salarioBaseMensual) {
         super(salarioBaseMensual);
-        this.horasTrabajadas = horasTrabajadas;
         calcularSalario();
     }
 
     @Override
-    Double calcularSalario() {
+    public Double calcularSalario() {
         double pagoPorHora = (super.getSalarioBaseMensual() / 30) / 8;
-        super.setSalario(horasTrabajadas * pagoPorHora);
+        super.setSalario(pagoPorHora);
         return super.getSalario();
     }
 }
