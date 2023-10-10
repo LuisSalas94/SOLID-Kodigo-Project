@@ -15,7 +15,7 @@ Registro de datos personales, documentos de identificación y referencias.
 ## Nómina y Remuneración:
 - Cálculo y generación de nóminas de pago, incluyendo deducciones, impuestos y bonificaciones.
 ## Diagrama
-![image](https://github.com/LuisSalas94/SOLID-Kodigo-Project/assets/57297709/8df59317-6a1c-4da3-b978-2e26c841171a)
+![image](https://raw.githubusercontent.com/LuisSalas94/SOLID-Kodigo-Project/main/Diagrama/solid_project-DiagramaClases.png)
 
 ## Tech Stack
 - Java 17
