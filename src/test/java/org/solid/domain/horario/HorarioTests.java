@@ -64,16 +64,16 @@ public class HorarioTests {
         verify(horarioSemanal, times(1)).sustituirHorario(eq(dia), any(HorarioDiario.class));
     }
 
-/*    @Test
-    void agregarOSustituirHorarioEnHorarioSemanalDeberiaFuncionar() {
-        HorarioDiario horarioDiario = new HorarioDiario("Horario x", "Descripcion x ", LocalTime.of(8, 0), LocalTime.of(16, 0));
-
-        when(horarioSemanal.sustituirHorario(eq(dia), any(HorarioDiario.class))).thenReturn(true);
-        when(horarioSemanal.agregarHorario(eq(dia), any(HorarioDiario.class))).thenReturn(true);
-
-        horarioSemanal.agregarOSustituirHorario(dia, horarioDiario);
-
-        verify(horarioSemanal, times(1)).sustituirHorario(eq(dia), any(HorarioDiario.class));
-        verify(horarioSemanal, never()).agregarHorario(eq(dia), any(HorarioDiario.class));
-    }*/
+// @Test
+//    void agregarOSustituirHorarioEnHorarioSemanalDeberiaFuncionar() {
+//        HorarioDiario horarioDiario = new HorarioDiario("Horario x", "Descripcion x ", LocalTime.of(8, 0), LocalTime.of(16, 0));
+//
+//        when(horarioSemanal.sustituirHorario(eq(dia), any(HorarioDiario.class))).thenReturn(true);
+//        when(horarioSemanal.agregarHorario(eq(dia), any(HorarioDiario.class))).thenReturn(true);
+//
+//        horarioSemanal.agregarOSustituirHorario(dia, horarioDiario);
+//
+//        verify(horarioSemanal, times(1)).sustituirHorario(eq(dia), any(HorarioDiario.class));
+//        verify(horarioSemanal, never()).agregarHorario(eq(dia), any(HorarioDiario.class));
+//    }
 }
