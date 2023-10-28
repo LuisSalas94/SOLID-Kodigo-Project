@@ -6,7 +6,7 @@ import org.solid.domain.asistencia.HorasExtra;
 
 public class SalarioHoraExtra extends Salario {
   private final Double porcentajeHorasDiurnas = 100.0 / 100.0;
-  private final Double porcentajeHorasNocturnas = 125.0 / 125.0;
+  private final Double porcentajeHorasNocturnas = 125.0 / 100.0;
 
   @Getter @Setter private Double salarioPorHorasNocturnas;
 
