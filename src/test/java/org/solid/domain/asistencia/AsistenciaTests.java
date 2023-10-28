@@ -1,8 +1,7 @@
 package org.solid.domain.asistencia;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.Mockito;
 import org.solid.domain.horario.HorarioSemanal;
 
 import java.time.LocalDate;
@@ -10,8 +9,6 @@ import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-//@ExtendWith(MockitoExtension.class)
 public class AsistenciaTests {
 
     @Test
@@ -87,6 +84,35 @@ public class AsistenciaTests {
         asistenciaLaboral.eliminarAusencia(LocalDate.of(2023, 5, 1));
 
         assertNull(asistenciaLaboral.getAusencias().get(LocalDate.of(2023, 5, 1)));
+    }
+
+    @Test
+    public void testAsistenciaLaboral() {
+        // Mocking Asistencia and Ausencia objects
+        Asistencia asistencia = Mockito.mock(Asistencia.class);
+        Ausencia ausencia = Mockito.mock(Ausencia.class);
+
+        // Mock HorarioSemanal object
+        HorarioSemanal horarioSemanal = Mockito.mock(HorarioSemanal.class);
+
+        // AsistenciaLaboral object
+        AsistenciaLaboral asistenciaLaboral = new AsistenciaLaboral(horarioSemanal, LocalDate.now(), LocalDate.now().plusDays(10));
+
+        // Asistencia
+        asistenciaLaboral.registrarAsistencia(LocalDate.now().plusDays(2), asistencia);
+        assertEquals(asistencia, asistenciaLaboral.getAsistencias().get(LocalDate.now().plusDays(2)));
+
+        // Ausencia
+        asistenciaLaboral.registrarAusencia(LocalDate.now().plusDays(4), ausencia);
+        assertEquals(ausencia, asistenciaLaboral.getAusencias().get(LocalDate.now().plusDays(4)));
+
+        // Asistencia
+        asistenciaLaboral.eliminarAsistencia(LocalDate.now().plusDays(2));
+        assertNull(asistenciaLaboral.getAsistencias().get(LocalDate.now().plusDays(2)));
+
+        // Ausencia
+        asistenciaLaboral.eliminarAusencia(LocalDate.now().plusDays(4));
+        assertNull(asistenciaLaboral.getAusencias().get(LocalDate.now().plusDays(4)));
     }
 
 }
