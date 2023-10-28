@@ -18,7 +18,7 @@ public class Renta implements IDeduccion {
     aplicarRetencion();
   }
 
-  private Double aplicarRetencion() {
+  Double aplicarRetencion() {
     Double salario = this.salarioPosImpuestos;
     if (salario >= 0.01 && salario <= 472.00) {
       tramo = 1;
@@ -39,25 +39,25 @@ public class Renta implements IDeduccion {
     return null;
   }
 
-  private Double aplicarPrimerTramo(Double salario) {
+  Double aplicarPrimerTramo(Double salario) {
     retencion = 0.0;
     salarioLiquido = salario;
     return salarioLiquido;
   }
 
-  private Double aplicarSegundoTramo(Double salario) {
+  Double aplicarSegundoTramo(Double salario) {
     retencion = ((salario - 472.00) * 0.1) + 17.67;
     salarioLiquido = salario - retencion;
     return salarioLiquido;
   }
 
-  private Double aplicarTercerTramo(Double salario) {
+  Double aplicarTercerTramo(Double salario) {
     retencion = ((salario - 895.24) * 0.2) + 60.00;
     salarioLiquido = salario - retencion;
     return salarioLiquido;
   }
 
-  private Double aplicarCuartoTramo(Double salario) {
+  Double aplicarCuartoTramo(Double salario) {
     retencion = ((salario - 2038.10) * 0.3) + 288.57;
     salarioLiquido = salario - retencion;
     return salarioLiquido;
