@@ -11,6 +11,7 @@ import org.solid.domain.empleado.Empleado;
 import org.solid.domain.horario.HorarioDiario;
 import org.solid.domain.horario.HorarioSemanal;
 import org.solid.domain.salario.Salario;
+import org.solid.domain.salario.SalarioFactory;
 import org.solid.domain.salario.SalarioMensual;
 import org.solid.domain.utils.Dias;
 
@@ -43,7 +44,8 @@ public class Demo {
     asistenciaLaboral.registrarAsistencia(LocalDate.of(2023, 10, 9), asistencia);
 
     // Fake Salarios
-    Salario salario = new SalarioMensual(1200.00);
+    SalarioFactory salarioFactory = new SalarioFactory();
+    Salario salario = salarioFactory.crearSalario(1200.00, "SalarioMensual");
     HorasExtra horasExtras = new HorasExtra(asistenciaLaboral);
 
     // Fake Nomina
