@@ -4,9 +4,11 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import lombok.Getter;
 import lombok.Setter;
+import org.solid.domain.designpatterns.decorator.AsistenciaLaboralComponent;
 import org.solid.domain.horario.HorarioSemanal;
 
-public class AsistenciaLaboral {
+// Concrete Component
+public class AsistenciaLaboral implements AsistenciaLaboralComponent {
   @Getter @Setter private HorarioSemanal horarioSemanal;
   @Getter @Setter private LocalDate fechaInicio;
   @Getter @Setter private LocalDate fechaFinal;
