@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -108,6 +109,14 @@ class SalarioTest {
         double expectedSalarioPorHorasNocturnas = 250.0;
         salarioHoraExtra.setSalarioPorHorasNocturnas(expectedSalarioPorHorasNocturnas);
         assertEquals(expectedSalarioPorHorasNocturnas, salarioHoraExtra.getSalarioPorHorasNocturnas());
+    }
+
+    @Test
+    void testCrearSalario() {
+        Salario salarioMensual = SalarioFactory.crearSalario(1200.0, "SalarioMensual");
+
+        assertNotNull(salarioMensual);
+        assertEquals(1200.0, salarioMensual.calcularSalario());
     }
 
 }

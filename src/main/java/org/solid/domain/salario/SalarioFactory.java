@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SalarioFactory {
-    private static final Map<String, Class<? extends Salario>> tipoSalario = new HashMap<>();
+    static final Map<String, Class<? extends Salario>> tipoSalario = new HashMap<>();
 
     static {
         tipoSalario.put("SalarioPorHora", SalarioPorHora.class);
