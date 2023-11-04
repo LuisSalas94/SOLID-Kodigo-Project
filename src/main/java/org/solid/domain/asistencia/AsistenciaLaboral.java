@@ -5,10 +5,11 @@ import java.util.HashMap;
 import lombok.Getter;
 import lombok.Setter;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralComponent;
+import org.solid.domain.designpatterns.observer.Observable;
 import org.solid.domain.horario.HorarioSemanal;
 
 // Concrete Component
-public class AsistenciaLaboral implements AsistenciaLaboralComponent {
+public class AsistenciaLaboral extends Observable implements AsistenciaLaboralComponent {
   @Getter @Setter private HorarioSemanal horarioSemanal;
   @Getter @Setter private LocalDate fechaInicio;
   @Getter @Setter private LocalDate fechaFinal;
@@ -31,7 +32,9 @@ public class AsistenciaLaboral implements AsistenciaLaboralComponent {
   public void registrarAsistencia(LocalDate fecha, Asistencia asistencia) {
     eliminarAsistencia(fecha);
     eliminarAusencia(fecha);
+
     asistencias.put(fecha, asistencia);
+    notifyObservers();
   }
 
   public void asignarVacaciones(LocalDate fechaInicio, LocalDate fechaFinal) {

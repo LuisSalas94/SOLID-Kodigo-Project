@@ -10,12 +10,14 @@ import org.solid.domain.deduccion_salarial.DeduccionSalarial;
 import org.solid.domain.deduccion_salarial.NominaSalarial;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralComponent;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralDecorator;
+import org.solid.domain.designpatterns.observer.AttendanceObserver;
+import org.solid.domain.designpatterns.observer.DeductionObserver;
+import org.solid.domain.designpatterns.observer.Observer;
 import org.solid.domain.empleado.Empleado;
 import org.solid.domain.horario.HorarioDiario;
 import org.solid.domain.horario.HorarioSemanal;
 import org.solid.domain.salario.Salario;
 import org.solid.domain.salario.SalarioFactory;
-import org.solid.domain.salario.SalarioMensual;
 import org.solid.domain.utils.Dias;
 
 public class Demo {
@@ -45,6 +47,10 @@ public class Demo {
                 new AsistenciaLaboral(
                         horarioTecnicoSemanal, LocalDate.of(2023, 10, 1), LocalDate.of(2023, 10, 31));
         asistenciaLaboral.registrarAsistencia(LocalDate.of(2023, 10, 9), asistencia);
+
+        Observer attendanceObserver = new AttendanceObserver();
+
+        asistenciaLaboral.addObserver(attendanceObserver);
 
         AsistenciaLaboralComponent decoratedAsistenciaLaboral = new AsistenciaLaboralDecorator(asistenciaLaboral);
         decoratedAsistenciaLaboral.registrarAsistencia(LocalDate.of(2023, 10, 10), new Asistencia(LocalTime.of(8, 0), LocalTime.of(16, 0)));

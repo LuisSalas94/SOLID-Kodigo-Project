@@ -24,7 +24,6 @@ public class DeduccionSalarial implements IDeduccion, ISalarioBruto {
     this.horasExtras = horasExtras;
     this.salarioBase = salarioBase;
     this.salariosExtras = salariosExtras;
-    calcularDeduccion();
   }
 
   public DeduccionSalarial(Salario salarioBase, HorasExtra horasExtras) {
