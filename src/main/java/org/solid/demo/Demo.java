@@ -8,6 +8,7 @@ import org.solid.domain.asistencia.AsistenciaLaboral;
 import org.solid.domain.asistencia.HorasExtra;
 import org.solid.domain.deduccion_salarial.DeduccionSalarial;
 import org.solid.domain.deduccion_salarial.NominaSalarial;
+import org.solid.domain.designpatterns.builder.EmployeeBuilder;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralComponent;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralDecorator;
 import org.solid.domain.designpatterns.observer.AttendanceObserver;
@@ -24,11 +25,16 @@ public class Demo {
 
     public static void main(String[] args) {
         // Fake Empleado
-        Empleado empleado = new Empleado();
+       /* Empleado empleado = new Empleado();
         empleado.setNombres("Jairo");
         empleado.setApellidos("Mercury");
         empleado.setIdenticicacion("234252-2");
-        empleado.setFechaNacimiento(LocalDate.of(2000, 1, 1));
+        empleado.setFechaNacimiento(LocalDate.of(2000, 1, 1));*/
+        Empleado empleado = new EmployeeBuilder("Juan", "Pérez", LocalDate.of(1990, 5, 15))
+                .identification("234252-2")
+                .build();
+
+
 
         // Fake Horarios
         HorarioSemanal horarioTecnicoSemanal =
