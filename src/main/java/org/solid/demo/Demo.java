@@ -8,7 +8,7 @@ import org.solid.domain.asistencia.AsistenciaLaboral;
 import org.solid.domain.asistencia.HorasExtra;
 import org.solid.domain.deduccion_salarial.DeduccionSalarial;
 import org.solid.domain.deduccion_salarial.NominaSalarial;
-import org.solid.domain.designpatterns.EmployeeSingleton;
+import org.solid.domain.designpatterns.singleton.EmployeeSingleton;
 import org.solid.domain.designpatterns.builder.EmployeeBuilder;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralComponent;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralDecorator;

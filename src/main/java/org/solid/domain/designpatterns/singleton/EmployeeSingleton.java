@@ -1,4 +1,4 @@
-package org.solid.domain.designpatterns;
+package org.solid.domain.designpatterns.singleton;
 
 import org.solid.domain.empleado.Empleado;
 
