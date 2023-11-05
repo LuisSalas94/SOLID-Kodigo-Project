@@ -2,6 +2,7 @@ package org.solid.domain.deduccion_salarial;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.solid.domain.designpatterns.strategy.IDeduccion;
 
 public class Isss implements IDeduccion {
   @Getter @Setter private Double isssPorcentajeEmpleado = 3.0 / 100.0;
@@ -15,7 +16,7 @@ public class Isss implements IDeduccion {
     this.salarioBruto = salarioBruto;
     calcularDeduccion();
   }
-
+  @Override
   public void calcularDeduccion() {
     Double salarioPreIsss = salarioBruto;
     if (salarioBruto >= 1000.0) {
@@ -24,5 +25,9 @@ public class Isss implements IDeduccion {
     this.isssEmpleado = salarioPreIsss * isssPorcentajeEmpleado;
     this.isssPatronal = salarioPreIsss * isssPorcentajePatronal;
     this.salarioLiquido = salarioPreIsss - isssEmpleado;
+
+    System.out.println("Deducción ISSS - Empleado: " + isssEmpleado);
+    System.out.println("Deducción ISSS - Patronal: " + isssPatronal);
+
   }
 }

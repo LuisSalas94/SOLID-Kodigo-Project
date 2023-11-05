@@ -24,15 +24,9 @@ public class Demo {
 
     public static void main(String[] args) {
         // Fake Empleado
-       /* Empleado empleado = new Empleado();
-        empleado.setNombres("Jairo");
-        empleado.setApellidos("Mercury");
-        empleado.setIdenticicacion("234252-2");
-        empleado.setFechaNacimiento(LocalDate.of(2000, 1, 1));*/
         Empleado empleado = new EmployeeBuilder("Juan", "Pérez", LocalDate.of(1990, 5, 15))
                 .identification("234252-2")
                 .build();
-
 
 
         // Fake Horarios
@@ -65,8 +59,7 @@ public class Demo {
 
 
         // Fake Salarios
-        SalarioFactory salarioFactory = new SalarioFactory();
-        Salario salario = salarioFactory.crearSalario(1200.00, "SalarioMensual");
+        Salario salario = SalarioFactory.crearSalario(1200.00, "SalarioMensual");
         HorasExtra horasExtras = new HorasExtra(asistenciaLaboral);
 
         // Fake Nomina

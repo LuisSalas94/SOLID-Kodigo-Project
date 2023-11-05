@@ -3,6 +3,8 @@ package org.solid.domain.deduccion_salarial;
 import lombok.Getter;
 import lombok.Setter;
 import org.solid.domain.asistencia.HorasExtra;
+import org.solid.domain.designpatterns.strategy.IDeduccion;
+import org.solid.domain.designpatterns.strategy.ISalarioBruto;
 import org.solid.domain.salario.Salario;
 import org.solid.domain.salario.SalarioHoraExtra;
 
@@ -33,6 +35,7 @@ public class DeduccionSalarial implements IDeduccion, ISalarioBruto {
     calcularDeduccion();
   }
 
+  @Override
   public void calcularSalarioBruto() {
     SalarioHoraExtra salarioHoraExtra =
         new SalarioHoraExtra(salarioBase.getSalarioBaseMensual(), horasExtras);
@@ -42,7 +45,7 @@ public class DeduccionSalarial implements IDeduccion, ISalarioBruto {
     }
     this.salarioBruto = salarioHoraExtra.getSalario() + totalSalarioExtra + salarioBase.getSalario();
   }
-
+@Override
   public void calcularDeduccion() {
     calcularSalarioBruto();
     afp = new Afp(salarioBruto);

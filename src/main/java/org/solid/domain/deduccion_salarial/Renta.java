@@ -2,6 +2,7 @@ package org.solid.domain.deduccion_salarial;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.solid.domain.designpatterns.strategy.IDeduccion;
 
 public class Renta implements IDeduccion {
   @Getter @Setter private Integer tramo;
@@ -14,6 +15,7 @@ public class Renta implements IDeduccion {
     calcularDeduccion();
   }
 
+  @Override
   public void calcularDeduccion() {
     aplicarRetencion();
   }

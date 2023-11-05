@@ -2,6 +2,7 @@ package org.solid.domain.deduccion_salarial;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.solid.domain.designpatterns.strategy.IDeduccion;
 
 public class Afp implements IDeduccion {
   @Getter @Setter private Double afpPorcentajeEmpleado = 7.25 / 100.0;
@@ -16,6 +17,7 @@ public class Afp implements IDeduccion {
     calcularDeduccion();
   }
 
+  @Override
   public void calcularDeduccion() {
     Double salarioPreAfp = salarioBruto;
     if (salarioBruto >= 7028.29) {
@@ -24,5 +26,8 @@ public class Afp implements IDeduccion {
     this.afpEmpleado = salarioPreAfp * afpPorcentajeEmpleado;
     this.afpPatronal = salarioPreAfp * afpPorcentajePatronal;
     this.salarioLiquido = salarioPreAfp - afpEmpleado;
+    System.out.println("Deducción AFP - Empleado: " + afpEmpleado);
+    System.out.println("Deducción AFP - Patronal: " + afpPatronal);
+
   }
 }
