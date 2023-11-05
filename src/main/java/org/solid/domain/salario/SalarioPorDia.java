@@ -7,7 +7,7 @@ public class SalarioPorDia extends Salario {
   }
 
   @Override
-  Double calcularSalario() {
+  public Double calcularSalario() {
     super.setSalario(super.getSalarioBaseMensual() / 30);
     return super.getSalario();
   }
