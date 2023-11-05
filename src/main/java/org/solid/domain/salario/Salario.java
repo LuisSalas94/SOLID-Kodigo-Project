@@ -16,7 +16,7 @@ public abstract class Salario {
     this.salarioBaseMensual = salarioBaseMensual;
   }
 
-  abstract Double calcularSalario();
+  public abstract Double calcularSalario();
 
 
 }

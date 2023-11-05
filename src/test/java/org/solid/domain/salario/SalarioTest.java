@@ -44,7 +44,7 @@ class SalarioTest {
     void testCalcularSalario() {
         Salario salario = new Salario(1000.0) {
             @Override
-            Double calcularSalario() {
+            public Double calcularSalario() {
                 return getSalarioBaseMensual() * 1.5;
             }
         };
