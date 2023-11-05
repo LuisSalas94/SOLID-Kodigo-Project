@@ -12,6 +12,7 @@ import static org.mockito.Mockito.when;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.solid.domain.asistencia.HorasExtra;
+import org.solid.domain.designpatterns.factory.SalarioFactory;
 
 @ExtendWith(MockitoExtension.class)
 class SalarioTest {

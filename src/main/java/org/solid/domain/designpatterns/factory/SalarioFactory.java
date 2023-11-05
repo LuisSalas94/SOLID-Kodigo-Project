@@ -1,4 +1,6 @@
-package org.solid.domain.salario;
+package org.solid.domain.designpatterns.factory;
+
+import org.solid.domain.salario.*;
 
 import java.util.HashMap;
 import java.util.Map;
