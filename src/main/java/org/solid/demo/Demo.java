@@ -8,6 +8,7 @@ import org.solid.domain.asistencia.AsistenciaLaboral;
 import org.solid.domain.asistencia.HorasExtra;
 import org.solid.domain.deduccion_salarial.DeduccionSalarial;
 import org.solid.domain.deduccion_salarial.NominaSalarial;
+import org.solid.domain.designpatterns.EmployeeSingleton;
 import org.solid.domain.designpatterns.builder.EmployeeBuilder;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralComponent;
 import org.solid.domain.designpatterns.decorator.AsistenciaLaboralDecorator;
@@ -23,10 +24,14 @@ import org.solid.domain.utils.Dias;
 public class Demo {
 
     public static void main(String[] args) {
+
         // Fake Empleado
         Empleado empleado = new EmployeeBuilder("Juan", "Pérez", LocalDate.of(1990, 5, 15))
                 .identification("234252-2")
                 .build();
+
+        //Fake database
+        EmployeeSingleton.getInstance().createEmployee(empleado);
 
 
         // Fake Horarios
