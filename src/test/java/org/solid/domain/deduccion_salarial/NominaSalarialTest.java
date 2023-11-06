@@ -4,10 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.solid.domain.empleado.Empleado;
 import org.solid.domain.salario.SalarioMensual;
 
+@ExtendWith(MockitoExtension.class)
 class NominaSalarialTest {
   @Mock private DeduccionSalarial deduccionSalarial;
 

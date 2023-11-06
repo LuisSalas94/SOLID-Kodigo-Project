@@ -2,7 +2,9 @@ package org.solid.domain.deduccion_salarial;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.solid.domain.asistencia.HorasExtra;
 import org.solid.domain.salario.Salario;
 import java.text.DecimalFormat;
@@ -10,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
 class DeduccionSalarialTest {
 
 
@@ -21,6 +22,10 @@ class DeduccionSalarialTest {
     private Salario[] salariosExtras;
     @Mock
     private HorasExtra horasExtras;
+    @Mock
+    Salario salarioExtra1;
+    @Mock
+    Salario salarioExtra2;
 
 
 
@@ -35,8 +40,7 @@ class DeduccionSalarialTest {
 
     @Test
     void testConstructorWithSalarioBaseAndSalariosExtrasAndHorasExtras() {
-        Salario salarioExtra1 = mock(Salario.class);
-        Salario salarioExtra2 = mock(Salario.class);
+
 
         Salario[] salariosExtras = new Salario[] {salarioExtra1, salarioExtra2};
 

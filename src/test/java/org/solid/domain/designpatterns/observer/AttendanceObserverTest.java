@@ -1,11 +1,8 @@
 package org.solid.domain.designpatterns.observer;
 
-import org.junit.Rule;
-import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.ByteArrayOutputStream;

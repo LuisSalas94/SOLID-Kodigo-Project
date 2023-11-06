@@ -1,9 +1,8 @@
-package org.solid.domain.asistencia;
+package org.solid.domain.designpatterns.decorator;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.solid.domain.designpatterns.decorator.AsistenciaLaboralComponent;
-import org.solid.domain.designpatterns.decorator.AsistenciaLaboralDecorator;
+import org.solid.domain.asistencia.Asistencia;
 
 import java.time.LocalDate;
 
