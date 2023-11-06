@@ -1,11 +1,10 @@
 package org.solid.domain.designpatterns.observer;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Observable {
-    private List<Observer> observerList = new ArrayList<>();
+    private final List<Observer> observerList = new ArrayList<>();
 
     public void addObserver(Observer observer){
         observerList.add(observer);
@@ -19,6 +18,9 @@ public class Observable {
         for (Observer observer : observerList){
             observer.update();
         }
+    }
+    public List<Observer> getObserverList(){
+        return  observerList;
     }
 
 }
