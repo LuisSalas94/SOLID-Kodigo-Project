@@ -58,8 +58,15 @@ public class EmployeeSingleton {
 
     public boolean deleteEmployee(String id){
        Empleado tmp = new Empleado();
-        tmp.setIdenticicacion(id);
-        return empleadoList.remove(tmp);
+        for (Empleado empleado : empleadoList) {
+            if (Objects.equals(empleado.getIdenticicacion(), id)) {
+                tmp = empleado;
+                break;
+            }
+        }
+
+        return empleadoList.remove(tmp); // Indica que se eliminó el empleado
+
     }
 
 }
