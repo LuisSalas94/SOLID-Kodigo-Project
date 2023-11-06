@@ -10,16 +10,14 @@ import org.solid.domain.salario.Salario;
 import java.text.DecimalFormat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+@ExtendWith(MockitoExtension.class)
 class DeduccionSalarialTest {
 
 
     private DeduccionSalarial deduccionSalarial;
     @Mock
     private Salario salarioBase;
-    @Mock
-    private Salario[] salariosExtras;
     @Mock
     private HorasExtra horasExtras;
     @Mock
@@ -31,9 +29,7 @@ class DeduccionSalarialTest {
 
     @BeforeEach
     public void setUp() {
-        salarioBase = mock(Salario.class);
-        salariosExtras = new Salario[0];
-        horasExtras = mock(HorasExtra.class);
+        Salario[] salariosExtras = new Salario[0];
 
         deduccionSalarial = new DeduccionSalarial(salarioBase, salariosExtras, horasExtras);
     }
