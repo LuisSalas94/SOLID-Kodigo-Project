@@ -2,11 +2,14 @@ package org.solid.domain.horario;
 
 import java.util.HashMap;
 import lombok.Getter;
+import lombok.Setter;
 import org.solid.domain.utils.Dias;
 
 public class HorarioSemanal extends Horario {
 
-  @Getter private HashMap<Dias, HorarioDiario> horario = new HashMap<>();
+  @Getter
+  @Setter
+  private HashMap<Dias, HorarioDiario> horario = new HashMap<>();
 
   public HorarioSemanal(String nombre, String descripcion) {
     super(nombre, descripcion);
