@@ -6,7 +6,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.mockito.Mockito;
@@ -17,10 +16,12 @@ import org.solid.domain.designpatterns.factory.SalarioFactory;
 @ExtendWith(MockitoExtension.class)
 class SalarioTest {
     private SalarioHoraExtra salarioHoraExtra;
+    @Mock
+    private HorasExtra mockHorasExtra;
 
     @BeforeEach
     public void setUp() {
-        HorasExtra mockHorasExtra = mock(HorasExtra.class);
+
         salarioHoraExtra = new SalarioHoraExtra(1000.0, mockHorasExtra);
     }
     @Mock

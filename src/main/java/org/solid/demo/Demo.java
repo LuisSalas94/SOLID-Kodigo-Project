@@ -32,6 +32,9 @@ public class Demo {
 
         //Fake database
         EmployeeSingleton.getInstance().createEmployee(empleado);
+        for (Empleado employee : EmployeeSingleton.getInstance().getEmployeeList()){
+            System.out.println(employee.toString());
+        }
 
 
         // Fake Horarios

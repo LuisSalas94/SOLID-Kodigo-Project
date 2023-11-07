@@ -12,7 +12,8 @@ import org.solid.domain.salario.SalarioMensual;
 
 @ExtendWith(MockitoExtension.class)
 class NominaSalarialTest {
-  @Mock private DeduccionSalarial deduccionSalarial;
+  @Mock
+  private DeduccionSalarial deduccionSalarial;
 
   @Test
   void testAsignarValores() {
